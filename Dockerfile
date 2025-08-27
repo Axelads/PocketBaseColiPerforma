@@ -1,15 +1,10 @@
 FROM alpine:latest
-
 WORKDIR /app
 
-# Copier le binaire PocketBase
 COPY pocketbase/pocketbase /app/pocketbase
-
-# Rendre exécutable
 RUN chmod +x /app/pocketbase
 
-# Exposer le port PocketBase
 EXPOSE 8080
 
-# Lancer PocketBase
-CMD ["/app/pocketbase", "serve", "--http=0.0.0.0:8080"]
+# ⚠️ Efface le répertoire de données à chaque démarrage (OK si tu n'as pas de data)
+CMD ["/bin/sh","-lc","rm -rf /app/pb_data && /app/pocketbase serve --http=0.0.0.0:8080"]
