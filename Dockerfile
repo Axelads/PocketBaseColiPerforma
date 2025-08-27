@@ -8,6 +8,6 @@ EXPOSE 8080
 
 # ⚠️ Efface le répertoire de données à chaque démarrage (OK si tu n'as pas de data)
 # Dockerfile – TEMPORAIRE
-CMD ["/bin/sh","-lc","/app/pocketbase superuser upsert 'professionnel.agregoire@gmail.com' 'NouveauMotDePasseFort2025!' || true; /app/pocketbase serve --http=0.0.0.0:8080"]
+CMD ["/app/pocketbase", "serve", "--http=0.0.0.0:8080"]
 
 
