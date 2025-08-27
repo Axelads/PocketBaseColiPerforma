@@ -23,4 +23,5 @@ fi
 # ----- (3) Démarre PocketBase sur le port imposé par Render -----
 PORT="${PORT:-10000}"     # Render fournit $PORT; fallback 10000
 echo "==> Starting PocketBase on 0.0.0.0:${PORT}"
+/app/pocketbase set settings.allowOrigins '["http://localhost:19006","exp://*","https://pocketbasecoliperforma.onrender.com"]'
 exec /app/pocketbase serve --http="0.0.0.0:${PORT}" --dir="/app/pb_data"
